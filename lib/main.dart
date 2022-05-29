@@ -1,3 +1,4 @@
+import 'package:cardapio_do_bentao/telas/inicio.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Cartão de visita',
-     );
+      title: 'Cardápio do Bentão',
+      home: inicio(),
+    );
   }
 }

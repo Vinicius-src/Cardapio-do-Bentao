@@ -1,4 +1,4 @@
-# cardapio_do_bentao
+# Cardápio do Bentão
 
 Esse projeto é um aplicativo Android para visualizar o cardápio do bandejão na escola Etec Bento Quirino.
 

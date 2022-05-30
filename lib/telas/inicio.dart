@@ -1,7 +1,9 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, prefer_const_literals_to_create_immutables, camel_case_types
+// ignore_for_file: prefer_const_constructors, duplicate_ignore, prefer_const_literals_to_create_immutables, camel_case_types, deprecated_member_use
 
 // ignore: unused_import
 import 'package:cardapio_do_bentao/main.dart';
+import 'package:cardapio_do_bentao/telas/destaque.dart';
+import 'package:cardapio_do_bentao/values/custonColor.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:flutter/material.dart';
 
@@ -37,37 +39,30 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
               padding: EdgeInsets.only(bottom: 20),
             ),
             Padding(
-                padding: EdgeInsets.only(bottom: 100),
+                padding: EdgeInsets.only(top: 30),
                 child: Container(
                   width: 330,
                   height: 50,
-                  padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-                  decoration: BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      )),
-                  // ignore: prefer_const_constructors
                   child: Text(
-                    "Seja bem vindo",
-                    textAlign: TextAlign.center,
+                    "Selecione:",
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                      fontSize: 18,
                     ),
                   ),
                 )),
             Center(
                 child: Form(
               child: Column(
-                children: [
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(bottom: 20),
                     child: SelectFormField(
                       type: SelectFormFieldType.dropdown, // or can be dialog
                       initialValue: 'Periodo',
                       labelText: 'Período',
+
                       items: _periodos,
                       onChanged: (val) => print(val),
                       onSaved: (val) => print(val),
@@ -75,8 +70,8 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
                   ),
                   SelectFormField(
                     type: SelectFormFieldType.dropdown, // or can be dialog
-                    initialValue: 'circle',
-                    labelText: 'Período',
+                    initialValue: 'Cursos',
+                    labelText: 'Cursos',
                     items: _cursos,
                     onChanged: (val) => print(val),
                     onSaved: (val) => print(val),
@@ -84,10 +79,24 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
                 ],
               ),
             )),
+            Padding(padding: EdgeInsets.only(top: 50)),
             Container(
-              padding: EdgeInsets.all(8),
-              // ignore: deprecated_member_use
-              child: RaisedButton(child: Text('Continuar'), onPressed: () {}),
+              padding: EdgeInsets.only(left: 30, right: 30),
+              child: RaisedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((context) => destaque()),
+                    ),
+                  );
+                },
+                child: Text('Continuar'),
+                color: CustomColors().getActivePrimaryButtonColor(),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
             ),
             Padding(
               child: Image.asset(
@@ -95,7 +104,7 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
                 width: 182,
                 height: 91,
               ),
-              padding: EdgeInsets.only(top: 80),
+              padding: EdgeInsets.only(top: 50, bottom: 10),
             ),
           ],
         ),

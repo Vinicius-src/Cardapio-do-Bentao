@@ -1,21 +1,21 @@
+import 'package:cardapio_do_bentao/telas/destaque.dart';
 import 'package:cardapio_do_bentao/telas/feedback.dart';
-import 'package:cardapio_do_bentao/telas/menuSenaba.dart';
 import 'package:cardapio_do_bentao/telas/vote.dart';
 import 'package:flutter/material.dart';
 
-class destaque extends StatefulWidget {
-  const destaque({Key? key}) : super(key: key);
+class menuSemana extends StatefulWidget {
+  const menuSemana({Key? key}) : super(key: key);
 
   @override
-  State<destaque> createState() => _destaqueState();
+  State<menuSemana> createState() => _menuSemanaState();
 }
 
-class _destaqueState extends State<destaque> {
+class _menuSemanaState extends State<menuSemana> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Destaque"),
+        title: Text("Menu da Semana"),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -39,7 +39,14 @@ class _destaqueState extends State<destaque> {
             Column(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => destaque()),
+                      ),
+                    );
+                  },
                   icon: Icon(
                     Icons.stars,
                     color: Colors.white,

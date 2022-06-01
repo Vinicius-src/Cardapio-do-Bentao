@@ -1,21 +1,21 @@
-import 'package:cardapio_do_bentao/telas/feedback.dart';
+import 'package:cardapio_do_bentao/telas/destaque.dart';
 import 'package:cardapio_do_bentao/telas/menuSenaba.dart';
 import 'package:cardapio_do_bentao/telas/vote.dart';
 import 'package:flutter/material.dart';
 
-class destaque extends StatefulWidget {
-  const destaque({Key? key}) : super(key: key);
+class feedback extends StatefulWidget {
+  const feedback({Key? key}) : super(key: key);
 
   @override
-  State<destaque> createState() => _destaqueState();
+  State<feedback> createState() => _feedbackState();
 }
 
-class _destaqueState extends State<destaque> {
+class _feedbackState extends State<feedback> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Destaque"),
+        title: Text("Feedback"),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -39,7 +39,14 @@ class _destaqueState extends State<destaque> {
             Column(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: ((context) => destaque()),
+                      ),
+                    );
+                  },
                   icon: Icon(
                     Icons.stars,
                     color: Colors.white,

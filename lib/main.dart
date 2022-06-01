@@ -1,3 +1,4 @@
+import 'package:cardapio_do_bentao/telas/destaque.dart';
 import 'package:cardapio_do_bentao/telas/inicio.dart';
 import 'package:flutter/material.dart';
 

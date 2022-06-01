@@ -1,16 +1,8 @@
-# cardapio_do_bentao
+# Cardápio do Bentão
 
-A new Flutter project.
+Esse projeto é um aplicativo Android para visualizar o cardápio do bandejão na escola Etec Bento Quirino.
 
-## Getting Started
+## Ideia do projeto
+-link para ver o mockup das telas no penpot. 
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://design.penpot.app/#/view/8a30cfb0-ddd5-11ec-9f2d-f940e3befd53?page-id=8a30cfb1-ddd5-11ec-9f2d-f940e3befd53&section=interactions&index=0&share-id=7b08b820-e02a-11ec-9f2d-f940e3befd53

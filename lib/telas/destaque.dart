@@ -1,5 +1,5 @@
 import 'package:cardapio_do_bentao/telas/feedback.dart';
-import 'package:cardapio_do_bentao/telas/menuSenaba.dart';
+import 'package:cardapio_do_bentao/telas/menuSemana.dart';
 import 'package:cardapio_do_bentao/telas/vote.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';

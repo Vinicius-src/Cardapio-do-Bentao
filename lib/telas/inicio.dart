@@ -2,7 +2,7 @@
 
 // ignore: unused_import
 import 'package:cardapio_do_bentao/main.dart';
-import 'package:cardapio_do_bentao/telas/destaque.dart';
+import 'package:cardapio_do_bentao/telas/home.dart';
 import 'package:cardapio_do_bentao/values/custonColor.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:flutter/material.dart';
@@ -84,10 +84,11 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
               padding: EdgeInsets.only(left: 30, right: 30),
               child: RaisedButton(
                 onPressed: () {
+                  Navigator.pop(context);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: ((context) => destaque()),
+                      builder: ((context) => home()),
                     ),
                   );
                 },

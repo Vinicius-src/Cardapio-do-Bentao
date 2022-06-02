@@ -1,4 +1,5 @@
 import 'package:cardapio_do_bentao/telas/destaque.dart';
+import 'package:cardapio_do_bentao/telas/diaSemanaSelecionado.dart';
 import 'package:cardapio_do_bentao/telas/feedback.dart';
 import 'package:cardapio_do_bentao/telas/vote.dart';
 import 'package:flutter/material.dart';
@@ -29,6 +30,24 @@ class _menuSemanaState extends State<menuSemana> {
               Image.asset("images/cardapioBentao.png", height: 149, width: 84),
         ),
       ),
+      body: Column(children: <Widget>[
+        Container(
+          child: Material(
+              child: InkWell(
+            child: Image.asset(
+              'images/menuDestaque.jpg',
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: ((context) => diaSemanaSelecionado()),
+                ),
+              );
+            },
+          )),
+        )
+      ]),
     );
   }
 }

@@ -1,6 +1,9 @@
 # Cardápio do Bentão
 
 Esse projeto é um aplicativo Android para visualizar o cardápio do bandejão na escola Etec Bento Quirino.
+![cardapioBentao](https://user-images.githubusercontent.com/81270407/171981966-61505309-2b69-4dbd-bfd6-3d9ea4c15d53.png)
+![etec](https://user-images.githubusercontent.com/81270407/171981969-9f6b4101-5db4-4226-9e80-85f3a4542277.png)
+
 
 ## Ideia do projeto
 -link para ver o mockup das telas no penpot. 

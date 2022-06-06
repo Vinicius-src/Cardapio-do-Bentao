@@ -1,6 +1,5 @@
 import 'package:cardapio_do_bentao/telas/feedback.dart';
 import 'package:cardapio_do_bentao/telas/menuSemana.dart';
-import 'package:cardapio_do_bentao/telas/vote.dart';
 import 'package:cardapio_do_bentao/telas/destaque.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -35,7 +34,6 @@ class _homeState extends State<home> {
         children: [
           destaque(),
           menuSemana(),
-          vote(),
           feedback(),
         ],
         onPageChanged: setPaginaAtual,
@@ -49,13 +47,12 @@ class _homeState extends State<home> {
         items: [
           FloatingNavbarItem(icon: Icons.stars, title: 'Destaque'),
           FloatingNavbarItem(icon: Icons.local_restaurant, title: 'Semana'),
-          FloatingNavbarItem(icon: Icons.info, title: 'Vote'),
           FloatingNavbarItem(
               icon: Icons.thumbs_up_down_rounded, title: 'Feedback'),
         ],
         onTap: (pagina) {
           pc.animateToPage(pagina,
-              duration: Duration(milliseconds: 400), curve: Curves.ease);
+              duration: Duration(milliseconds: 800), curve: Curves.ease);
         },
       ),
     );

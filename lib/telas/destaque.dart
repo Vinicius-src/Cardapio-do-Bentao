@@ -1,9 +1,5 @@
-import 'package:cardapio_do_bentao/telas/feedback.dart';
-import 'package:cardapio_do_bentao/telas/menuSemana.dart';
 import 'package:cardapio_do_bentao/telas/menuDia.dart';
-import 'package:cardapio_do_bentao/telas/vote.dart';
 import 'package:flutter/material.dart';
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 
 class destaque extends StatefulWidget {
   const destaque({Key? key}) : super(key: key);
@@ -15,6 +11,7 @@ class destaque extends StatefulWidget {
 class _destaqueState extends State<destaque> {
   int _index = 0;
   late PageController pc;
+
   @override
   void initState() {
     super.initState();
@@ -39,60 +36,74 @@ class _destaqueState extends State<destaque> {
               Image.asset("images/cardapioBentao.png", height: 149, width: 84),
         ),
       ),
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(20),
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(25)),
-              // ignore: deprecated_member_use
-              child: Material(
-                  child: InkWell(
-                child: Image.asset(
-                  'images/menuDestaque.jpg',
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => menuDia()),
-                    ),
-                  );
-                },
-              )),
-            ),
+      body: Column(children: <Widget>[
+        Padding(
+          padding: EdgeInsets.all(20),
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(25)),
+            // ignore: deprecated_member_use
+            child: Material(
+                child: InkWell(
+              child: Image.asset(
+                'images/menuDestaque.jpg',
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => menuDia()),
+                  ),
+                );
+              },
+            )),
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(20, 30, 50, 30),
+        ),
+        Padding(
+            padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
             child: Text(
               "Noticias",
               textAlign: TextAlign.left,
-            ),
-          ),
-          Row(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.only(left: 20),
-                child: Image.asset('images/menuDestaque.jpg'),
-                width: 100,
-                height: 100,
-              ),
-              Container(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: Image.asset('images/menuDestaque.jpg'),
-                width: 100,
-                height: 100,
-              ),
-              Container(
-                padding: EdgeInsets.only(right: 10),
-                child: Image.asset('images/menuDestaque.jpg'),
-                width: 100,
-                height: 100,
-              ),
-            ],
-          )
-        ],
-      ),
+              style: TextStyle(fontSize: 25),
+            )),
+        Expanded(child: GridPrincipal())
+      ]),
     );
+  }
+}
+
+class GridPrincipal extends StatelessWidget {
+  const GridPrincipal({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var imgNoticia = {
+      1: Image.asset("images/junina.jpg"),
+      2: Image.asset("images/bentotec.jpg"),
+      3: Image.asset("images/junina.jpg"),
+      4: Image.asset("images/bentotec.jpg"),
+    };
+    int nimgNoticia = 1;
+
+    return GridView.builder(
+        itemCount: imgNoticia.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 0,
+          mainAxisSpacing: 0,
+        ),
+        itemBuilder: (BuildContext ctx, int index) {
+          return Container(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(30)),
+              // ignore: deprecated_member_use
+              child: Material(
+                  child: InkWell(
+                child: imgNoticia[nimgNoticia++],
+                onTap: () {},
+              )),
+            ),
+          );
+        });
   }
 }

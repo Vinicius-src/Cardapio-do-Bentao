@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cardapio_do_bentao">
    <application
-        android:label="cardapio_do_bentao"
+        android:label="Cardápio do Bentão"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

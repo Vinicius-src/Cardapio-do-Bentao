@@ -77,10 +77,23 @@ class GridPrincipal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var imgNoticia = {
-      1: Image.asset("images/junina.jpg"),
-      2: Image.asset("images/bentotec.jpg"),
-      3: Image.asset("images/junina.jpg"),
-      4: Image.asset("images/bentotec.jpg"),
+      1: Image.asset(
+        "images/junina.jpg",
+        width: double.infinity,
+        height: double.infinity,
+      ),
+      2: Image.asset(
+        "images/bentotec.jpg",
+        width: double.infinity,
+        height: double.infinity,
+      ),
+      3: Image.asset(
+        "images/junina.jpg",
+        width: double.infinity,
+        height: double.infinity,
+      ),
+      4: Image.asset("images/bentotec.jpg",
+          width: double.infinity, height: double.infinity),
     };
     int nimgNoticia = 1;
 
@@ -93,17 +106,31 @@ class GridPrincipal extends StatelessWidget {
         ),
         itemBuilder: (BuildContext ctx, int index) {
           return Container(
-            padding: EdgeInsets.only(left: 10, right: 10),
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(30)),
-              // ignore: deprecated_member_use
-              child: Material(
-                  child: InkWell(
-                child: imgNoticia[nimgNoticia++],
-                onTap: () {},
-              )),
-            ),
-          );
+              height: 200,
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: Card(
+                elevation: 100,
+                color: Colors.white30,
+                child: Center(child: imgNoticia[nimgNoticia++]),
+              ));
         });
   }
 }
+ /*GridView.builder(
+        itemCount: imgNoticia.length,
+        childAspectRatio: (2 / 2),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 0,
+          mainAxisSpacing: 0,
+        ),
+        itemBuilder: (BuildContext ctx, int index) {
+          return Container(
+              height: 200,
+              padding: EdgeInsets.only(left: 10, right: 10),
+              child: Card(
+                elevation: 100,
+                color: Colors.grey,
+                child: Center(child: imgNoticia[nimgNoticia++]),
+              ));
+        });*/

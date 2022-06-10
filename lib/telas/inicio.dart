@@ -59,6 +59,7 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
                   Padding(
                     padding: EdgeInsets.only(bottom: 20),
                     child: SelectFormField(
+                      changeIcon:true ,
                       type: SelectFormFieldType.dropdown, // or can be dialog
                       initialValue: 'Periodo',
                       labelText: 'Período',

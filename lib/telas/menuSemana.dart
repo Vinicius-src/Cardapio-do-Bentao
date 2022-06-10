@@ -57,10 +57,10 @@ class _menuCalendario extends State<calendario> {
                 height: 130,
                 showMonth: true,
                 minDate: DateTime.now().add(
-                  Duration(days: -365),
+                  Duration(days: -7),
                 ),
                 maxDate: DateTime.now().add(
-                  Duration(days: 365),
+                  Duration(days: 7),
                 ),
                 onDatePressed: (DateTime datetime) {
                   // Do something

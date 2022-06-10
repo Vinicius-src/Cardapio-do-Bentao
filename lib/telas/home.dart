@@ -29,6 +29,7 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: PageView(
         controller: pc,
         children: [
@@ -39,6 +40,7 @@ class _homeState extends State<home> {
         onPageChanged: setPaginaAtual,
       ),
       bottomNavigationBar: FloatingNavbar(
+        
         backgroundColor: Colors.deepOrange,
         selectedBackgroundColor: Colors.yellow,
         unselectedItemColor: Colors.white,
@@ -52,7 +54,7 @@ class _homeState extends State<home> {
         ],
         onTap: (pagina) {
           pc.animateToPage(pagina,
-              duration: Duration(milliseconds: 800), curve: Curves.ease);
+              duration: Duration(milliseconds: 300), curve: Curves.ease);
         },
       ),
     );

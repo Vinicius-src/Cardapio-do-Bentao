@@ -110,27 +110,9 @@ class GridPrincipal extends StatelessWidget {
               padding: EdgeInsets.only(left: 10, right: 10),
               child: Card(
                 elevation: 100,
-                color: Colors.white30,
+                color: Colors.white,
                 child: Center(child: imgNoticia[nimgNoticia++]),
               ));
         });
   }
 }
- /*GridView.builder(
-        itemCount: imgNoticia.length,
-        childAspectRatio: (2 / 2),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 0,
-          mainAxisSpacing: 0,
-        ),
-        itemBuilder: (BuildContext ctx, int index) {
-          return Container(
-              height: 200,
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: Card(
-                elevation: 100,
-                color: Colors.grey,
-                child: Center(child: imgNoticia[nimgNoticia++]),
-              ));
-        });*/

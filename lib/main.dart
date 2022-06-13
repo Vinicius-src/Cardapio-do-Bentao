@@ -1,7 +1,13 @@
+import 'dart:async';
+import 'dart:ffi';
+import 'package:cardapio_do_bentao/telas/home.dart';
 import 'package:flutter/material.dart';
 import 'package:cardapio_do_bentao/telas/inicio.dart';
+import 'package:cardapio_do_bentao/telas/splash.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,15 +21,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [const Locale('pt', 'BR')],
+      locale: Locale("pt"),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'Cardápio do Bentão',
-      home: inicio(),
+      home: Splash(),
     );
   }
 }

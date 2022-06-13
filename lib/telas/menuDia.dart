@@ -26,7 +26,88 @@ class _menuDiaState extends State<menuDia> {
               Image.asset("images/cardapioBentao.png", height: 149, width: 84),
         ),
       ),
-      body: Container(),
+      body: ListView(children: <Widget>[
+        Padding(
+            padding: EdgeInsets.only(left: 10, right: 10, top: 20),
+            child: Container(
+                width: double.infinity,
+                height: 30,
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: Center(
+                    child: Text(
+                  "Café da manhã 8h às 9h",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                )))),
+        Padding(
+            padding: EdgeInsets.only(left: 25, top: 20),
+            child: Container(
+              width: double.infinity,
+              height: 200,
+              child: Text("variaver do cardapio"),
+            )),
+        Padding(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Container(
+                width: double.infinity,
+                height: 30,
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: Center(
+                    child: Text(
+                  "Almoço 11h às 12h",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                )))),
+        Padding(
+            padding: EdgeInsets.only(left: 25, top: 20),
+            child: Container(
+              width: double.infinity,
+              height: 200,
+              child: Text("variaver do cardapio"),
+            )),
+        Padding(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Container(
+                width: double.infinity,
+                height: 30,
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: Center(
+                    child: Text(
+                  "Lanche da tarde 14h30 às 15h30",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                )))),
+        Padding(
+            padding: EdgeInsets.only(left: 25, top: 20),
+            child: Container(
+              width: double.infinity,
+              height: 200,
+              child: Text("variaver do cardapio"),
+            )),
+        Padding(
+            padding: EdgeInsets.only(left: 10, right: 10),
+            child: Container(
+                width: double.infinity,
+                height: 30,
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                child: Center(
+                    child: Text(
+                  "Jantar 19h às 20h",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                )))),
+        Padding(
+            padding: EdgeInsets.only(left: 25, top: 20),
+            child: Container(
+              width: double.infinity,
+              height: 200,
+              child: Text("variaver do cardapio"),
+            )),
+      ]),
     );
   }
 }

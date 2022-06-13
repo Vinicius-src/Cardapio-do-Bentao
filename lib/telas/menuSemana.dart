@@ -55,42 +55,29 @@ class _menuCalendario extends State<calendario> {
               child: CalendarWeek(
                 controller: _controller,
                 height: 130,
-                showMonth: true,
+                showMonth: false,
                 minDate: DateTime.now().add(
-                  Duration(days: -7),
+                  Duration(days: -3),
                 ),
                 maxDate: DateTime.now().add(
-                  Duration(days: 7),
+                  Duration(days: 3),
                 ),
                 onDatePressed: (DateTime datetime) {
                   // Do something
                   setState(() {});
                 },
-                onDateLongPressed: (DateTime datetime) {
-                  // Do something
-                },
-                onWeekChanged: () {
-                  // Do something
-                },
                 monthViewBuilder: (DateTime time) => Align(
                   alignment: FractionalOffset.center,
                   child: Row(children: [
+                    Padding(padding: EdgeInsets.only(top: 10)),
                     Text(
+                      //AppLocalizations.of(context)!.JUNE),
                       DateFormat.yMMMM().format(time),
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.blue, fontWeight: FontWeight.w600),
                     ),
-                    Padding(
-                        padding: EdgeInsets.only(left: 100),
-                        child: IconButton(
-                          icon: Icon(Icons.keyboard_return_rounded),
-                          onPressed: () {
-                            _controller.jumpToDate(DateTime.now());
-                            setState(() {});
-                          },
-                        ))
                   ]),
                 ),
                 decorations: [
@@ -120,7 +107,7 @@ class menuCardapio extends StatelessWidget {
                   width: double.infinity,
                   height: 30,
                   decoration: BoxDecoration(
-                      color: Colors.blueGrey,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: Center(
                       child: Text(
@@ -140,7 +127,7 @@ class menuCardapio extends StatelessWidget {
                   width: double.infinity,
                   height: 30,
                   decoration: BoxDecoration(
-                      color: Colors.blueGrey,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: Center(
                       child: Text(
@@ -160,7 +147,7 @@ class menuCardapio extends StatelessWidget {
                   width: double.infinity,
                   height: 30,
                   decoration: BoxDecoration(
-                      color: Colors.blueGrey,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: Center(
                       child: Text(
@@ -180,7 +167,7 @@ class menuCardapio extends StatelessWidget {
                   width: double.infinity,
                   height: 30,
                   decoration: BoxDecoration(
-                      color: Colors.blueGrey,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   child: Center(
                       child: Text(

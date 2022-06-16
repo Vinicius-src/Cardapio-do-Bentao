@@ -42,6 +42,22 @@ dependencies:
   floating_bottom_navigation_bar: ^1.5.2
   flutter_calendar_week: ^2.1.1
   flutter_rating_bar: ^4.0.1
+  flutter_launcher_icons: ^0.9.3
+  flutter_native_splash: ^2.2.3+1
+
+flutter_native_splash:
+  color: "#f18725"
+  image: "images/app/splash.png"
+  android: true
+  ios: true
+
+flutter_icons:
+  image_path: "images/app/icon.png"
+  ios: true
+  remove_alpha_ios: true
+  android: "launcher_icon"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "images/app/icons2.png"
   
 
 

@@ -3,7 +3,6 @@ import 'dart:ffi';
 import 'package:cardapio_do_bentao/telas/home.dart';
 import 'package:flutter/material.dart';
 import 'package:cardapio_do_bentao/telas/inicio.dart';
-import 'package:cardapio_do_bentao/telas/splash.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'Cardápio do Bentão',
-      home: Splash(),
+      home: inicio(),
     );
   }
 }

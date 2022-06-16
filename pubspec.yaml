@@ -30,10 +30,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
-    sdk: flutter 
+    sdk: flutter
 
   intl: ^0.17.0
-   
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 
@@ -44,22 +44,22 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   flutter_launcher_icons: ^0.9.3
   flutter_native_splash: ^2.2.3+1
+  google_fonts: ^3.0.1
+  smooth_star_rating: ^1.1.1
 
 flutter_native_splash:
-  color: "#f18725"
-  image: "images/app/splash.png"
+  color: '#f18725'
+  image: 'images/app/splash.png'
   android: true
   ios: true
 
 flutter_icons:
-  image_path: "images/app/icon.png"
+  image_path: 'images/app/icon.png'
   ios: true
   remove_alpha_ios: true
-  android: "launcher_icon"
-  adaptive_icon_background: "#FFFFFF"
-  adaptive_icon_foreground: "images/app/icons2.png"
-  
-
+  android: 'launcher_icon'
+  adaptive_icon_background: '#FFFFFF'
+  adaptive_icon_foreground: 'images/app/icons2.png'
 
 dev_dependencies:
   flutter_test:
@@ -77,26 +77,25 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  
+
   generate: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - images/cardapioBentao.png
-   - images/etec.png
-   - images/menuDestaque.jpg
-   - images/junina.jpg
-   - images/bentotec.jpg
-   - images/emogi1.png
-   - images/emogi2.png
-   - images/emogi3.png
-   - images/emogi4.png
-   - images/emogi5.png
+    - images/cardapioBentao.png
+    - images/etec.png
+    - images/menuDestaque.jpg
+    - images/junina.jpg
+    - images/bentotec.jpg
+    - images/emogi1.png
+    - images/emogi2.png
+    - images/emogi3.png
+    - images/emogi4.png
+    - images/emogi5.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

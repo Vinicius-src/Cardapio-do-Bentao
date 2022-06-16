@@ -1,8 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:cardapio_do_bentao/values/custonColor.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class feedback extends StatefulWidget {
   const feedback({Key? key}) : super(key: key);
@@ -12,42 +15,50 @@ class feedback extends StatefulWidget {
 }
 
 class _feedbackState extends State<feedback> {
-  var number = 5;
+  var number = 3;
 
   double? value;
   double? _ratingValue;
 
   //array
   var imgEmogi = {
-    1: Image.asset("images/emogi1.png", width: 200, height: 200),
-    2: Image.asset("images/emogi2.png", width: 200, height: 200),
-    3: Image.asset("images/emogi3.png", width: 200, height: 200),
-    4: Image.asset("images/emogi4.png", width: 200, height: 200),
-    5: Image.asset("images/emogi5.png", width: 200, height: 200),
+    1: Image.asset("images/emogi1.png", width: 210, height: 210),
+    2: Image.asset("images/emogi2.png", width: 210, height: 210),
+    3: Image.asset("images/emogi3.png", width: 210, height: 210),
+    4: Image.asset("images/emogi4.png", width: 210, height: 210),
+    5: Image.asset("images/emogi5.png", width: 210, height: 210),
   };
 
   var msg = {
     1: Text("Muito Insatisfeito!",
-        style: TextStyle(fontSize: 20, color: Colors.black87),
+        style: GoogleFonts.secularOne().copyWith(
+            fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w100),
         textAlign: TextAlign.center),
     2: Text("Insatisfeito!",
-        style: TextStyle(fontSize: 20, color: Colors.black87),
+        style: GoogleFonts.secularOne().copyWith(
+            fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w100),
         textAlign: TextAlign.center),
-    3: Text("Mediano!",
-        style: TextStyle(fontSize: 20, color: Colors.black87),
+    3: Text("Bom!",
+        style: GoogleFonts.secularOne().copyWith(
+            fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w100),
         textAlign: TextAlign.center),
-    4: Text("Satisfeito!",
-        style: TextStyle(fontSize: 20, color: Colors.black87),
+    4: Text("Muito Bom!",
+        style: GoogleFonts.secularOne().copyWith(
+            fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w100),
         textAlign: TextAlign.center),
-    5: Text("Muito Satisfeito!",
-        style: TextStyle(fontSize: 20, color: Colors.black87),
+    5: Text("Exelente!",
+        style: GoogleFonts.secularOne().copyWith(
+            fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w100),
         textAlign: TextAlign.center),
   };
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Feedback"),
+        title: Text(
+          "Feedback",
+          style: GoogleFonts.secularOne(fontWeight: FontWeight.w100),
+        ),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -67,28 +78,29 @@ class _feedbackState extends State<feedback> {
           padding: EdgeInsets.only(top: 50),
           child: Center(
               child: Text(
-            "Você está satisfeito com prato? deixe sua avaliação!",
-            style: TextStyle(fontSize: 25, color: Colors.black87),
+            "Você está satisfeito com prato? \n deixe sua avaliação!",
+            style: GoogleFonts.secularOne()
+                .copyWith(fontSize: 25, fontWeight: FontWeight.w500),
             textAlign: TextAlign.center,
           )),
         ),
         Padding(
-            padding: EdgeInsets.only(top: 75),
+            padding: EdgeInsets.only(top: 60),
             child: Center(child: imgEmogi[number])),
         Container(padding: EdgeInsets.only(top: 25), child: msg[number]),
         Padding(padding: EdgeInsets.only(top: 10)),
         Container(
-          color: Colors.white70,
           child: Center(
               child: RatingBar.builder(
-            initialRating: 5,
+            itemSize: 50,
+            initialRating: 3,
             minRating: 1,
             direction: Axis.horizontal,
             allowHalfRating: false,
             itemCount: 5,
-            itemPadding: EdgeInsets.symmetric(horizontal: 4),
+            itemPadding: EdgeInsets.symmetric(horizontal: 1),
             itemBuilder: (context, _) => Icon(
-              Icons.star,
+              Icons.star_rounded,
               color: Colors.amber,
             ),
             onRatingUpdate: (value) {
@@ -98,15 +110,19 @@ class _feedbackState extends State<feedback> {
             },
           )),
         ),
-        Padding(padding: EdgeInsets.only(top: 25)),
+        Padding(padding: EdgeInsets.only(top: 30)),
         Container(
-          padding: EdgeInsets.only(left: 30, right: 30),
+          padding: EdgeInsets.only(left: 100, right: 100),
           child: RaisedButton(
             onPressed: () {},
-            child: Text('Enviar'),
+            child: Text(
+              'Avaliar',
+              style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
+                  .copyWith(fontSize: 20),
+            ),
             color: CustomColors().getActivePrimaryButtonColor(),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
+              borderRadius: BorderRadius.circular(50),
             ),
           ),
         ),

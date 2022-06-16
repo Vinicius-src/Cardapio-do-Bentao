@@ -1,5 +1,6 @@
 import 'package:cardapio_do_bentao/telas/menuDia.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class destaque extends StatefulWidget {
   const destaque({Key? key}) : super(key: key);
@@ -22,7 +23,10 @@ class _destaqueState extends State<destaque> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Destaque"),
+        title: Text(
+          "Destaque",
+          style: GoogleFonts.secularOne(fontWeight: FontWeight.w100),
+        ),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -63,7 +67,8 @@ class _destaqueState extends State<destaque> {
             child: Text(
               "Noticias",
               textAlign: TextAlign.left,
-              style: TextStyle(fontSize: 25),
+              style: GoogleFonts.secularOne()
+                  .copyWith(fontSize: 25, fontWeight: FontWeight.w100),
             )),
         Expanded(child: GridPrincipal())
       ]),

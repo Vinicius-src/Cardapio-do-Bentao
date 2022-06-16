@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:intl/intl.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class menuSemana extends StatefulWidget {
   const menuSemana({Key? key}) : super(key: key);
@@ -14,7 +15,8 @@ class _menuSemanaState extends State<menuSemana> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Menu da Semana"),
+          title: Text("Menu da Semana",
+              style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -112,7 +114,8 @@ class menuCardapio extends StatelessWidget {
                   child: Center(
                       child: Text(
                     "Café da manhã 8h às 9h",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
+                        .copyWith(color: Colors.white, fontSize: 20),
                   )))),
           Padding(
               padding: EdgeInsets.only(left: 25, top: 20),
@@ -132,7 +135,8 @@ class menuCardapio extends StatelessWidget {
                   child: Center(
                       child: Text(
                     "Almoço 11h às 12h",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
+                        .copyWith(color: Colors.white, fontSize: 20),
                   )))),
           Padding(
               padding: EdgeInsets.only(left: 25, top: 20),

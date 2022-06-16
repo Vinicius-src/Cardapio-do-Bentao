@@ -5,6 +5,7 @@ import 'package:cardapio_do_bentao/telas/home.dart';
 import 'package:cardapio_do_bentao/values/custonColor.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class inicio extends StatefulWidget {
   const inicio({Key? key}) : super(key: key);
@@ -45,10 +46,8 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
                   child: Text(
                     "Selecione:",
                     textAlign: TextAlign.left,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                    ),
+                    style: GoogleFonts.secularOne()
+                        .copyWith(fontWeight: FontWeight.w500, fontSize: 21),
                   ),
                 )),
             Center(
@@ -61,6 +60,8 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
                       changeIcon: true,
                       type: SelectFormFieldType.dropdown, // or can be dialog
                       initialValue: 'Periodo',
+                      style: GoogleFonts.secularOne()
+                          .copyWith(fontWeight: FontWeight.w500, fontSize: 15),
                       labelText: 'Período',
 
                       items: _periodos,
@@ -71,6 +72,8 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
                   SelectFormField(
                     type: SelectFormFieldType.dropdown, // or can be dialog
                     initialValue: 'Cursos',
+                    style: GoogleFonts.secularOne()
+                        .copyWith(fontWeight: FontWeight.w500, fontSize: 15),
                     labelText: 'Cursos',
                     items: _cursos,
                     onChanged: (val) => print(val),
@@ -92,7 +95,11 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
                     ),
                   );
                 },
-                child: Text('Continuar'),
+                child: Text(
+                  'Confirmar',
+                  style: GoogleFonts.secularOne()
+                      .copyWith(fontWeight: FontWeight.w500, fontSize: 17),
+                ),
                 color: CustomColors().getActivePrimaryButtonColor(),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),

@@ -3,6 +3,7 @@ import 'package:cardapio_do_bentao/telas/menuSemana.dart';
 import 'package:cardapio_do_bentao/telas/destaque.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
@@ -46,7 +47,10 @@ class _homeState extends State<home> {
         selectedItemColor: Colors.black,
         currentIndex: _index,
         items: [
-          FloatingNavbarItem(icon: Icons.stars, title: 'Destaque'),
+          FloatingNavbarItem(
+            icon: Icons.stars,
+            title: 'Destaque',
+          ),
           FloatingNavbarItem(icon: Icons.local_restaurant, title: 'Semana'),
           FloatingNavbarItem(
               icon: Icons.thumbs_up_down_rounded, title: 'Feedback'),

@@ -25,8 +25,8 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Colors.yellow,
                 Colors.deepOrange,
+                Colors.yellowAccent,
               ]),
         ),
         child: Column(

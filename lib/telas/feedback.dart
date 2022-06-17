@@ -75,7 +75,7 @@ class _feedbackState extends State<feedback> {
       body: ListView(children: <Widget>[
         //ListView da scrow pra rola a tela
         Container(
-          padding: EdgeInsets.only(top: 50),
+          padding: EdgeInsets.only(top: 40),
           child: Center(
               child: Text(
             "Você está satisfeito com prato? \n deixe sua avaliação!",
@@ -85,7 +85,7 @@ class _feedbackState extends State<feedback> {
           )),
         ),
         Padding(
-            padding: EdgeInsets.only(top: 60),
+            padding: EdgeInsets.only(top: 40),
             child: Center(child: imgEmogi[number])),
         Container(padding: EdgeInsets.only(top: 25), child: msg[number]),
         Padding(padding: EdgeInsets.only(top: 10)),

@@ -104,7 +104,8 @@ class _menuDiaState extends State<menuDia> {
                 child: Center(
                     child: Text(
                   "Jantar 19h às 20h",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
+                      .copyWith(color: Colors.white, fontSize: 20),
                 )))),
         Padding(
             padding: EdgeInsets.only(left: 25, top: 20),

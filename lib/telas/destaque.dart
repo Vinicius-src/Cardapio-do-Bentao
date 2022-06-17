@@ -24,7 +24,7 @@ class _destaqueState extends State<destaque> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Destaque",
+          "Destlllllaque",
           style: GoogleFonts.secularOne(fontWeight: FontWeight.w100),
         ),
         flexibleSpace: Container(
@@ -37,7 +37,7 @@ class _destaqueState extends State<destaque> {
           height: 300,
           padding: EdgeInsets.only(left: 200),
           child:
-              Image.asset("images/cardapioBentao.png", height: 149, width: 84),
+              Image.asset("images/cardapioBentao.png", height:75, width: 75),
         ),
       ),
       body: Column(children: <Widget>[

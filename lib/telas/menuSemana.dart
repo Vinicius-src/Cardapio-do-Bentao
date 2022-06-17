@@ -22,7 +22,7 @@ class _menuSemanaState extends State<menuSemana> {
               gradient: LinearGradient(
                   begin: Alignment.centerLeft,
                   end: Alignment.centerRight,
-                  colors: <Color>[Colors.deepOrange, Colors.yellow]),
+                  colors: <Color>[Colors.yellow, Colors.deepOrange]),
             ),
             height: 300,
             padding: EdgeInsets.only(left: 200),
@@ -156,7 +156,8 @@ class menuCardapio extends StatelessWidget {
                   child: Center(
                       child: Text(
                     "Lanche da tarde 14h30 às 15h30",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
+                        .copyWith(color: Colors.white, fontSize: 20),
                   )))),
           Padding(
               padding: EdgeInsets.only(left: 25, top: 20),
@@ -176,7 +177,8 @@ class menuCardapio extends StatelessWidget {
                   child: Center(
                       child: Text(
                     "Jantar 19h às 20h",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
+                        .copyWith(color: Colors.white, fontSize: 20),
                   )))),
           Padding(
               padding: EdgeInsets.only(left: 25, top: 20),

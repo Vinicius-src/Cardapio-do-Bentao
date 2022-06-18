@@ -35,7 +35,7 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
           children: <Widget>[
             Padding(
               child: Image.asset("images/cardapioBentao.png",
-                  width: 274, height: 154),
+                  width: 150, height: 130),
               padding: EdgeInsets.only(bottom: 20),
             ),
             Padding(

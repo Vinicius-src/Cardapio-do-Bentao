@@ -67,9 +67,9 @@ class _feedbackState extends State<feedback> {
                 colors: <Color>[Colors.deepOrange, Colors.yellow]),
           ),
           height: 300,
-          padding: EdgeInsets.only(left: 200),
-          child:
-              Image.asset("images/cardapioBentao.png", height: 149, width: 84),
+          padding: EdgeInsets.only(left: 300),
+          child: Image.asset("images/cardapioBentaoBar.png",
+              height: 149, width: 84),
         ),
       ),
       body: ListView(children: <Widget>[

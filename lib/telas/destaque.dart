@@ -1,6 +1,7 @@
 import 'package:cardapio_do_bentao/telas/menuDia.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class destaque extends StatefulWidget {
   const destaque({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _destaqueState extends State<destaque> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Destlllllaque",
+          "Destaque",
           style: GoogleFonts.secularOne(fontWeight: FontWeight.w100),
         ),
         flexibleSpace: Container(
@@ -35,9 +36,12 @@ class _destaqueState extends State<destaque> {
                 colors: <Color>[Colors.deepOrange, Colors.yellow]),
           ),
           height: 300,
-          padding: EdgeInsets.only(left: 200),
-          child:
-              Image.asset("images/cardapioBentao.png", height:75, width: 75),
+          padding: EdgeInsets.only(left: 300),
+          child: Image.asset(
+            "images/cardapioBentaoBar.png",
+            height: 50,
+            width: 50,
+          ),
         ),
       ),
       body: Column(children: <Widget>[
@@ -100,6 +104,14 @@ class GridPrincipal extends StatelessWidget {
       4: Image.asset("images/bentotec.jpg",
           width: double.infinity, height: double.infinity),
     };
+
+    var linkImg = {
+      1: 'https://www.sympla.com.br/evento/arraia-do-bentao-2022/1591190',
+      2: 'https://docs.google.com/forms/d/e/1FAIpQLSfCF2m_9a60Y10L72luKZrlKyCn4XJV4tFBRlFLBA7rsjujMQ/viewform',
+      3: 'https://www.sympla.com.br/evento/arraia-do-bentao-2022/1591190',
+      4: 'https://docs.google.com/forms/d/e/1FAIpQLSfCF2m_9a60Y10L72luKZrlKyCn4XJV4tFBRlFLBA7rsjujMQ/viewform',
+    };
+
     int nimgNoticia = 1;
 
     return GridView.builder(
@@ -113,11 +125,20 @@ class GridPrincipal extends StatelessWidget {
           return Container(
               height: 200,
               padding: EdgeInsets.only(left: 10, right: 10),
-              child: Card(
-                elevation: 100,
-                color: Colors.white,
-                child: Center(child: imgNoticia[nimgNoticia++]),
-              ));
+              child: TextButton(
+                  child: Card(
+                    elevation: 100,
+                    color: Colors.white,
+                    child: Center(child: imgNoticia[nimgNoticia++]),
+                  ),
+                  onPressed: () async {
+                    String url = 'https://etecbentoquirino.com.br/new/';
+                    if (await canLaunch(url)) {
+                      await launch(url, forceSafariVC: false);
+                    } else {
+                      print("Não foi possivel redirecionar");
+                    }
+                  }));
         });
   }
 }

@@ -6,6 +6,7 @@ import 'package:cardapio_do_bentao/values/custonColor.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class inicio extends StatefulWidget {
   const inicio({Key? key}) : super(key: key);
@@ -15,6 +16,18 @@ class inicio extends StatefulWidget {
 }
 
 class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
+  final _formKey = GlobalKey<FormState>();
+  final _periodoController = TextEditingController();
+  final _cursoController = TextEditingController();
+
+  testandoSelecao() {
+    if (_periodoController.text == '' || _cursoController.text == '') {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,60 +65,86 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
                 )),
             Center(
                 child: Form(
+              key: _formKey,
               child: Column(
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(bottom: 20),
                     child: SelectFormField(
+                      controller: _periodoController,
                       changeIcon: true,
                       type: SelectFormFieldType.dropdown, // or can be dialog
-                      initialValue: 'Periodo',
                       style: GoogleFonts.secularOne()
                           .copyWith(fontWeight: FontWeight.w500, fontSize: 15),
                       labelText: 'Período',
 
                       items: _periodos,
-                      onChanged: (val) => print(val),
-                      onSaved: (val) => print(val),
+                      onChanged: (val) => _periodoController,
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return 'selecione seu período';
+                        }
+                        return null;
+                      },
+                      onSaved: (val) => _periodoController,
                     ),
                   ),
                   SelectFormField(
+                    controller: _cursoController,
                     type: SelectFormFieldType.dropdown, // or can be dialog
-                    initialValue: 'Cursos',
                     style: GoogleFonts.secularOne()
                         .copyWith(fontWeight: FontWeight.w500, fontSize: 15),
                     labelText: 'Cursos',
                     items: _cursos,
-                    onChanged: (val) => print(val),
-                    onSaved: (val) => print(val),
+                    onChanged: (val) => _cursoController,
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'selecione seu curso';
+                      }
+                      return null;
+                    },
+                    onSaved: (val) => _cursoController,
+                  ),
+                  Padding(padding: EdgeInsets.only(top: 50)),
+                  Container(
+                    padding: EdgeInsets.only(left: 30, right: 30),
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {}
+                        bool deuCerto = await login();
+
+                        if (deuCerto) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: ((context) => home()),
+                            ),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        }
+
+                        setState(() {
+                          print(_periodoController.text);
+                          print(_cursoController.text);
+                        });
+                      },
+                      child: Text(
+                        'Confirmar',
+                        style: GoogleFonts.secularOne().copyWith(
+                            fontWeight: FontWeight.w500, fontSize: 17),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          primary: CustomColors().getActivePrimaryButtonColor(),
+                          onPrimary: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50),
+                          )),
+                    ),
                   ),
                 ],
               ),
             )),
-            Padding(padding: EdgeInsets.only(top: 50)),
-            Container(
-              padding: EdgeInsets.only(left: 30, right: 30),
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => home()),
-                    ),
-                  );
-                },
-                child: Text(
-                  'Confirmar',
-                  style: GoogleFonts.secularOne()
-                      .copyWith(fontWeight: FontWeight.w500, fontSize: 17),
-                ),
-                color: CustomColors().getActivePrimaryButtonColor(),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-            ),
             Padding(
               child: Image.asset(
                 "images/etec.png",
@@ -118,6 +157,27 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
         ),
       ),
     );
+  }
+
+  final snackBar = SnackBar(
+    content: Text('Slecione seu periodo e curso, por favor',
+        textAlign: TextAlign.center),
+    backgroundColor: Colors.redAccent,
+  );
+
+  Future<bool> login() async {
+    bool _resposta = testandoSelecao();
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    var Dados = {
+      'Periodo': _periodoController.text,
+      'Curso': _cursoController.text,
+    };
+    if (_resposta == true) {
+      await sharedPreferences.setString('token', 'Permitido');
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 

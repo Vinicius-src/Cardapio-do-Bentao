@@ -36,7 +36,7 @@ class _homeState extends State<home> {
         children: [
           destaque(),
           menuSemana(),
-          feedback(),
+          atual(),
         ],
         onPageChanged: setPaginaAtual,
       ),

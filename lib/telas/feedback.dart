@@ -2,10 +2,79 @@
 
 //import 'dart:html';
 
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:cardapio_do_bentao/values/custonColor.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+bool? tela;
+
+trocarTela(tela) {
+  if (tela != false) {
+    return (feedback());
+  } else {
+    return (posfeed());
+  }
+}
+
+//=======FUNCAO_TROCAR_TELA=====================================================
+
+//=======FUNCAO_TROCAR_TELA=====================================================
+
+//=======TELA_ATUAL=============================================================
+
+class atual extends StatefulWidget {
+  const atual({Key? key}) : super(key: key);
+
+  @override
+  State<atual> createState() => _atualState();
+}
+
+class _atualState extends State<atual> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Feedback",
+            style: GoogleFonts.secularOne(fontWeight: FontWeight.w100),
+          ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[Colors.deepOrange, Colors.yellow]),
+            ),
+            height: 300,
+            padding: EdgeInsets.only(left: 300),
+            child: Image.asset("images/cardapioBentaoBar.png",
+                height: 149, width: 84),
+          ),
+        ),
+        body: trocarTela(tela));
+  }
+}
+//===============================================POS_FEEDBACK!!!==============================================
+
+class posfeed extends StatelessWidget {
+  const posfeed({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: Center(
+      child: Text("Obrigado!",
+          style: GoogleFonts.secularOne().copyWith(
+              fontSize: 30, color: Colors.black87, fontWeight: FontWeight.w100),
+          textAlign: TextAlign.center),
+    ));
+  }
+}
+
+//===============================================FEEDBACK!!!==================================================
 
 class feedback extends StatefulWidget {
   const feedback({Key? key}) : super(key: key);
@@ -53,26 +122,8 @@ class _feedbackState extends State<feedback> {
   };
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Feedback",
-          style: GoogleFonts.secularOne(fontWeight: FontWeight.w100),
-        ),
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                colors: <Color>[Colors.deepOrange, Colors.yellow]),
-          ),
-          height: 300,
-          padding: EdgeInsets.only(left: 300),
-          child: Image.asset("images/cardapioBentaoBar.png",
-              height: 149, width: 84),
-        ),
-      ),
-      body: ListView(children: <Widget>[
+    return ListView(
+      children: <Widget>[
         //ListView da scrow pra rola a tela
         Container(
           padding: EdgeInsets.only(top: 40),
@@ -114,7 +165,9 @@ class _feedbackState extends State<feedback> {
         Container(
           padding: EdgeInsets.only(left: 100, right: 100),
           child: RaisedButton(
-            onPressed: () {},
+            onPressed: () {
+              tela = false;
+            },
             child: Text(
               'Avaliar',
               style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
@@ -126,7 +179,7 @@ class _feedbackState extends State<feedback> {
             ),
           ),
         ),
-      ]),
+      ],
     );
   }
 }

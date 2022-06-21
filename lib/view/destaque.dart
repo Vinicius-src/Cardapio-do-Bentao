@@ -132,9 +132,14 @@ class GridPrincipal extends StatelessWidget {
                     child: Center(child: imgNoticia[nimgNoticia++]),
                   ),
                   onPressed: () async {
-                    String url = 'https://etecbentoquirino.com.br/new/';
-                    if (await canLaunch(url)) {
-                      await launch(url, forceSafariVC: false);
+                    var url = Uri(
+                      scheme: 'https',
+                      host: 'etecbentoquirino.com.br',
+                      path: '/new/',
+                    );
+                    if (await launchUrl(url)) {
+                      await launchUrl(url,
+                          mode: LaunchMode.externalApplication);
                     } else {
                       print("Não foi possivel redirecionar");
                     }

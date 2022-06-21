@@ -14,35 +14,9 @@ import 'package:google_fonts/google_fonts.dart';
 int voto = 0;
 //===============================================POS_FEEDBACK!!!==============================================
 
-<<<<<<< HEAD
-trocarTela(tela) {
-  if (tela != false) {
-    return feedback();
-  } else {
-    return posfeed();
-  }
-}
-
-//=======FUNCAO_TROCAR_TELA=====================================================
-
-//=======FUNCAO_TROCAR_TELA=====================================================
-
-//=======TELA_ATUAL=============================================================
-
-class atual extends StatefulWidget {
-  const atual({Key? key}) : super(key: key);
-
-  @override
-  State<atual> createState() => _atualState();
-}
-
-class _atualState extends State<atual> {
-
-=======
 class posfeed extends StatelessWidget {
   const posfeed({Key? key}) : super(key: key);
 
->>>>>>> cd134faff8a41b8a27a681cadb0e953de9cc1d6e
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -156,38 +130,12 @@ class _feedbackState extends State<feedback> {
                   end: Alignment.centerRight,
                   colors: <Color>[Colors.deepOrange, Colors.yellow]),
             ),
-<<<<<<< HEAD
-            onRatingUpdate: (value) {
-              setState(() {
-                number = value.toInt();
-              });
-            },
-          
-          )),
-        ),
-        Padding(padding: EdgeInsets.only(top: 30)),
-        Container(
-          padding: EdgeInsets.only(left: 100, right: 100),
-          child: RaisedButton(
-            onPressed: () {
-              tela = false;
-            },
-            child: Text(
-              'Avaliar',
-              style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
-                  .copyWith(fontSize: 20),
-            ),
-            color: CustomColors().getActivePrimaryButtonColor(),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-=======
             height: 300,
             padding: EdgeInsets.only(left: 300),
             child: Image.asset(
               "images/cardapioBentaoBar.png",
               height: 50,
               width: 50,
->>>>>>> cd134faff8a41b8a27a681cadb0e953de9cc1d6e
             ),
           ),
         ),

@@ -1,9 +1,8 @@
-import 'package:cardapio_do_bentao/telas/feedback.dart';
-import 'package:cardapio_do_bentao/telas/menuSemana.dart';
-import 'package:cardapio_do_bentao/telas/destaque.dart';
+import 'package:cardapio_do_bentao/view/feedback.dart';
+import 'package:cardapio_do_bentao/view/menuSemana.dart';
+import 'package:cardapio_do_bentao/view/destaque.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);

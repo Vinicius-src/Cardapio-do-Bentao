@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, prefer_const_literals_to_create_immutables, camel_case_types, deprecated_member_us
 // ignore: unused_import
 import 'dart:convert';
-
-import 'package:cardapio_do_bentao/main.dart';
 import 'package:cardapio_do_bentao/model/user_model.dart';
-import 'package:cardapio_do_bentao/telas/home.dart';
+import 'package:cardapio_do_bentao/view/home.dart';
 import 'package:cardapio_do_bentao/values/custonColor.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:flutter/material.dart';
@@ -190,7 +188,7 @@ void _saveUsuario(Usuario usuario) async {
   SharedPreferences saveUsuario = await SharedPreferences.getInstance();
   saveUsuario.setString(
     "IformacoesUsuario",
-    json.encode( usuario.toJson()),
+    json.encode(usuario.toJson()),
   );
 }
 

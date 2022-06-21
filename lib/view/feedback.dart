@@ -1,11 +1,4 @@
 // ignore_for_file: deprecated_member_use
-
-//import 'dart:html';
-
-//import 'dart:html';
-
-//import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:cardapio_do_bentao/values/custonColor.dart';

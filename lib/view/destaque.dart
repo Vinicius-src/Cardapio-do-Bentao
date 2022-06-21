@@ -1,4 +1,4 @@
-import 'package:cardapio_do_bentao/telas/menuDia.dart';
+import 'package:cardapio_do_bentao/view/menuDia.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';

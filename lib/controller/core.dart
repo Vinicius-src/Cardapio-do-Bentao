@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:cardapio_do_bentao/telas/home.dart';
-import 'package:cardapio_do_bentao/telas/inicio.dart';
+import 'package:cardapio_do_bentao/view/home.dart';
+import 'package:cardapio_do_bentao/view/inicio.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

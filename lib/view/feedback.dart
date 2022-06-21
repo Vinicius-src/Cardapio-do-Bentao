@@ -1,4 +1,3 @@
-// ignore_for_file: deprecated_member_use
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:cardapio_do_bentao/values/custonColor.dart';
@@ -42,7 +41,7 @@ class posfeed extends StatelessWidget {
           Center(
             child: Container(
               padding: EdgeInsets.only(left: 100, right: 100),
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -51,13 +50,15 @@ class posfeed extends StatelessWidget {
                   style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
                       .copyWith(fontSize: 30),
                 ),
-                color: CustomColors().getActivePrimaryButtonColor(),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
+                style: ElevatedButton.styleFrom(
+                    primary: CustomColors().getActivePrimaryButtonColor(),
+                    onPrimary: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    )),
               ),
             ),
-          )
+          ),
         ]));
   }
 }
@@ -174,7 +175,7 @@ class _feedbackState extends State<feedback> {
             Padding(padding: EdgeInsets.only(top: 30)),
             Container(
               padding: EdgeInsets.only(left: 100, right: 100),
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: () {
                   setState(() {
                     if (voto == 0) {
@@ -191,10 +192,12 @@ class _feedbackState extends State<feedback> {
                   style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
                       .copyWith(fontSize: 20),
                 ),
-                color: CustomColors().getActivePrimaryButtonColor(),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
+                style: ElevatedButton.styleFrom(
+                    primary: CustomColors().getActivePrimaryButtonColor(),
+                    onPrimary: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    )),
               ),
             ),
           ],

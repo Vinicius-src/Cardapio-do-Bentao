@@ -135,15 +135,19 @@ class GridPrincipal extends StatelessWidget {
                     var url = Uri(
                       scheme: 'https',
                       host: 'etecbentoquirino.com.br',
-                      path: '/new/',
+                      path: '/new/cafe/',
                     );
-                    if (await launchUrl(url)) {
-                      await launchUrl(url,
-                          mode: LaunchMode.externalApplication);
+                    if (await launchUrl(url,
+                        mode: LaunchMode.externalApplication)) {
                     } else {
-                      print("Não foi possivel redirecionar");
+                      ScaffoldMessenger.of(context).showSnackBar(urlErro);
                     }
                   }));
         });
   }
 }
+
+final urlErro = SnackBar(
+  content: Text('Não foi possivel redirecionar!', textAlign: TextAlign.center),
+  backgroundColor: Colors.redAccent,
+);

@@ -13,9 +13,9 @@ bool? tela;
 
 trocarTela(tela) {
   if (tela != false) {
-    return (feedback());
+    return feedback();
   } else {
-    return (posfeed());
+    return posfeed();
   }
 }
 
@@ -33,6 +33,7 @@ class atual extends StatefulWidget {
 }
 
 class _atualState extends State<atual> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,6 +160,7 @@ class _feedbackState extends State<feedback> {
                 number = value.toInt();
               });
             },
+          
           )),
         ),
         Padding(padding: EdgeInsets.only(top: 30)),

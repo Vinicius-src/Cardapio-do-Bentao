@@ -4,35 +4,19 @@
 
 //import 'dart:html';
 
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:cardapio_do_bentao/values/custonColor.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-bool? tela;
+int voto = 0;
+//===============================================POS_FEEDBACK!!!==============================================
 
-trocarTela(tela) {
-  if (tela != false) {
-    return (feedback());
-  } else {
-    return (posfeed());
-  }
-}
+class posfeed extends StatelessWidget {
+  const posfeed({Key? key}) : super(key: key);
 
-//=======FUNCAO_TROCAR_TELA=====================================================
-
-//=======FUNCAO_TROCAR_TELA=====================================================
-
-//=======TELA_ATUAL=============================================================
-
-class atual extends StatefulWidget {
-  const atual({Key? key}) : super(key: key);
-
-  @override
-  State<atual> createState() => _atualState();
-}
-
-class _atualState extends State<atual> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,23 +38,34 @@ class _atualState extends State<atual> {
                 height: 149, width: 84),
           ),
         ),
-        body: trocarTela(tela));
-  }
-}
-//===============================================POS_FEEDBACK!!!==============================================
-
-class posfeed extends StatelessWidget {
-  const posfeed({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        child: Center(
-      child: Text("Obrigado!",
-          style: GoogleFonts.secularOne().copyWith(
-              fontSize: 30, color: Colors.black87, fontWeight: FontWeight.w100),
-          textAlign: TextAlign.center),
-    ));
+        body: ListView(children: <Widget>[
+          Padding(padding: EdgeInsets.only(top: 275)),
+          Center(
+              child: Container(
+                  child: Text("Obrigado!",
+                      style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
+                          .copyWith(fontSize: 40)))),
+          Padding(padding: EdgeInsets.only(top: 30)),
+          Center(
+            child: Container(
+              padding: EdgeInsets.only(left: 100, right: 100),
+              child: RaisedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  'Voltar',
+                  style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
+                      .copyWith(fontSize: 30),
+                ),
+                color: CustomColors().getActivePrimaryButtonColor(),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
+            ),
+          )
+        ]));
   }
 }
 
@@ -122,64 +117,99 @@ class _feedbackState extends State<feedback> {
   };
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        //ListView da scrow pra rola a tela
-        Container(
-          padding: EdgeInsets.only(top: 40),
-          child: Center(
-              child: Text(
-            "Você está satisfeito com prato? \n deixe sua avaliação!",
-            style: GoogleFonts.secularOne()
-                .copyWith(fontSize: 25, fontWeight: FontWeight.w500),
-            textAlign: TextAlign.center,
-          )),
-        ),
-        Padding(
-            padding: EdgeInsets.only(top: 40),
-            child: Center(child: imgEmogi[number])),
-        Container(padding: EdgeInsets.only(top: 25), child: msg[number]),
-        Padding(padding: EdgeInsets.only(top: 10)),
-        Container(
-          child: Center(
-              child: RatingBar.builder(
-            itemSize: 50,
-            initialRating: 3,
-            minRating: 1,
-            direction: Axis.horizontal,
-            allowHalfRating: false,
-            itemCount: 5,
-            itemPadding: EdgeInsets.symmetric(horizontal: 1),
-            itemBuilder: (context, _) => Icon(
-              Icons.star_rounded,
-              color: Colors.amber,
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Feedback",
+            style: GoogleFonts.secularOne(fontWeight: FontWeight.w100),
+          ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                  colors: <Color>[Colors.deepOrange, Colors.yellow]),
             ),
-            onRatingUpdate: (value) {
-              setState(() {
-                number = value.toInt();
-              });
-            },
-          )),
-        ),
-        Padding(padding: EdgeInsets.only(top: 30)),
-        Container(
-          padding: EdgeInsets.only(left: 100, right: 100),
-          child: RaisedButton(
-            onPressed: () {
-              tela = false;
-            },
-            child: Text(
-              'Avaliar',
-              style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
-                  .copyWith(fontSize: 20),
-            ),
-            color: CustomColors().getActivePrimaryButtonColor(),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
+            height: 300,
+            padding: EdgeInsets.only(left: 300),
+            child: Image.asset(
+              "images/cardapioBentaoBar.png",
+              height: 50,
+              width: 50,
             ),
           ),
         ),
-      ],
-    );
+        body: ListView(
+          children: <Widget>[
+            //ListView da scrow pra rola a tela
+            Container(
+              padding: EdgeInsets.only(top: 40),
+              child: Center(
+                  child: Text(
+                "Você está satisfeito com prato? \n deixe sua avaliação!",
+                style: GoogleFonts.secularOne()
+                    .copyWith(fontSize: 25, fontWeight: FontWeight.w500),
+                textAlign: TextAlign.center,
+              )),
+            ),
+            Padding(
+                padding: EdgeInsets.only(top: 40),
+                child: Center(child: imgEmogi[number])),
+            Container(padding: EdgeInsets.only(top: 25), child: msg[number]),
+            Padding(padding: EdgeInsets.only(top: 10)),
+            Container(
+              child: Center(
+                  child: RatingBar.builder(
+                itemSize: 50,
+                initialRating: 3,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: false,
+                itemCount: 5,
+                itemPadding: EdgeInsets.symmetric(horizontal: 1),
+                itemBuilder: (context, _) => Icon(
+                  Icons.star_rounded,
+                  color: Colors.amber,
+                ),
+                onRatingUpdate: (value) {
+                  setState(() {
+                    number = value.toInt();
+                  });
+                },
+              )),
+            ),
+            Padding(padding: EdgeInsets.only(top: 30)),
+            Container(
+              padding: EdgeInsets.only(left: 100, right: 100),
+              child: RaisedButton(
+                onPressed: () {
+                  setState(() {
+                    if (voto == 0) {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => posfeed()));
+                      voto = voto + 1;
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                  });
+                },
+                child: Text(
+                  'Avaliar',
+                  style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
+                      .copyWith(fontSize: 20),
+                ),
+                color: CustomColors().getActivePrimaryButtonColor(),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
+
+final snackBar = SnackBar(
+  content: Text('Você já avaliou o prato hoje!', textAlign: TextAlign.center),
+  backgroundColor: Colors.green,
+);

@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../model/semana_model.dart';
 
 class menuSemana extends StatefulWidget {
   const menuSemana({Key? key}) : super(key: key);
@@ -193,9 +196,29 @@ class _menuCardapioState extends State<menuCardapio> {
           Container(
             width: 100,
             height: 50,
+            child: Container(child: ElevatedButton(onPressed: (){
+              _saveCardapioMemoria(dadosCadapio);
+
+            }, child: Text("gravar dados"))),
           )
         ]),
       ),
     ]);
   }
+
+  SemanaCardapio dadosCadapio = SemanaCardapio(
+    data: "23/06/2022",
+    cafe: "Pão com manteiga",
+    almoco: "Arroz e feijão",
+    lache: "Pão com ovo",
+    jantar: "Arroz feijão e carne bolvina",
+  );
+void _saveCardapioMemoria(SemanaCardapio dadosCadapio) async {
+  SharedPreferences saveUsuario = await SharedPreferences.getInstance();
+  saveUsuario.setString(
+    "Cardapio",
+    json.encode(dadosCadapio.toJson()),
+  );
+  sharedPreferences.getString('Cardapio')
+}
 }

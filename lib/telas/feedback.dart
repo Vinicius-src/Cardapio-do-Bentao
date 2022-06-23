@@ -1,75 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
-//import 'dart:html';
-
-//import 'dart:html';
-
-//import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:cardapio_do_bentao/values/custonColor.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-int voto = 0;
-//===============================================POS_FEEDBACK!!!==============================================
-
-class posfeed extends StatelessWidget {
-  const posfeed({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            "Feedback",
-            style: GoogleFonts.secularOne(fontWeight: FontWeight.w100),
-          ),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                  colors: <Color>[Colors.deepOrange, Colors.yellow]),
-            ),
-            height: 300,
-            padding: EdgeInsets.only(left: 300),
-            child: Image.asset("images/cardapioBentaoBar.png",
-                height: 149, width: 84),
-          ),
-        ),
-        body: ListView(children: <Widget>[
-          Padding(padding: EdgeInsets.only(top: 275)),
-          Center(
-              child: Container(
-                  child: Text("Obrigado!",
-                      style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
-                          .copyWith(fontSize: 40)))),
-          Padding(padding: EdgeInsets.only(top: 30)),
-          Center(
-            child: Container(
-              padding: EdgeInsets.only(left: 100, right: 100),
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text(
-                  'Voltar',
-                  style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
-                      .copyWith(fontSize: 30),
-                ),
-                color: CustomColors().getActivePrimaryButtonColor(),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-              ),
-            ),
-          )
-        ]));
-  }
-}
-
-//===============================================FEEDBACK!!!==================================================
+bool voto = true;
 
 class feedback extends StatefulWidget {
   const feedback({Key? key}) : super(key: key);
@@ -80,7 +16,6 @@ class feedback extends StatefulWidget {
 
 class _feedbackState extends State<feedback> {
   var number = 3;
-
   double? value;
   double? _ratingValue;
 
@@ -115,7 +50,26 @@ class _feedbackState extends State<feedback> {
             fontSize: 25, color: Colors.black87, fontWeight: FontWeight.w100),
         textAlign: TextAlign.center),
   };
+
   @override
+  Widget buildSheet() => Column(
+        children: [
+          Padding(padding: EdgeInsets.only(top: 150)),
+          Container(
+              child: Center(
+                  child: Text("Obrigado ;D",
+                      style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
+                          .copyWith(fontSize: 40)))),
+          Padding(padding: EdgeInsets.only(top: 25)),
+          Text(
+            "A sua avaliração é muito importante para nós!",
+            style: GoogleFonts.secularOne(fontWeight: FontWeight.w500)
+                .copyWith(fontSize: 25, color: Color.fromARGB(200, 0, 0, 0)),
+            textAlign: TextAlign.center,
+          )
+        ],
+      );
+
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -178,20 +132,25 @@ class _feedbackState extends State<feedback> {
                 },
               )),
             ),
+
             Padding(padding: EdgeInsets.only(top: 30)),
             Container(
               padding: EdgeInsets.only(left: 100, right: 100),
               child: RaisedButton(
                 onPressed: () {
-                  setState(() {
-                    if (voto == 0) {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => posfeed()));
-                      voto = voto + 1;
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    }
-                  });
+                  if (voto == true) {
+                    showModalBottomSheet(
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.vertical(top: Radius.circular(20)),
+                        ),
+                        context: context,
+                        builder: (context) => buildSheet());
+
+                    voto = false;
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  }
                 },
                 child: Text(
                   'Avaliar',
@@ -209,7 +168,9 @@ class _feedbackState extends State<feedback> {
   }
 }
 
+//CASO O USURAIO JA TENHA DEIXADO SUA AVALIAÇÃO, ESTA MSG IRAR APARECER
 final snackBar = SnackBar(
-  content: Text('Você já avaliou o prato hoje!', textAlign: TextAlign.center),
+  content: Text('Você já avaliou o prato hoje, Obrigado!',
+      textAlign: TextAlign.center),
   backgroundColor: Colors.green,
 );

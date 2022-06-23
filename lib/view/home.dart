@@ -1,3 +1,4 @@
+import 'package:cardapio_do_bentao/model/semana_model.dart';
 import 'package:cardapio_do_bentao/view/feedback.dart';
 import 'package:cardapio_do_bentao/view/menuSemana.dart';
 import 'package:cardapio_do_bentao/view/destaque.dart';

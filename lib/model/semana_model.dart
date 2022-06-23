@@ -1,29 +1,13 @@
-//responsavel por gravar informações do cardapio da semana
+//pegar os dados no banco firebase em processo
 
-class SemanaCardapio {
-  String? data;
-  String? cafe;
-  String? almoco;
-  String? lache;
-  String? jantar;
+import 'package:http/http.dart' as http;
 
-  SemanaCardapio({this.data, this.cafe, this.almoco, this.lache, this.jantar});
+class PegarDados {
+  static Uri url = Uri.https("jjjjjjjjjjjj", "kkkkkkkkkkkkkk");
 
-  SemanaCardapio.fromJson(Map<String, dynamic> json) {
-    data = json['data'];
-    cafe = json['cafe'];
-    almoco = json['almoco'];
-    lache = json['lache'];
-    jantar = json['jantar'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['data'] = this.data;
-    data['cafe'] = this.cafe;
-    data['almoco'] = this.almoco;
-    data['lache'] = this.lache;
-    data['jantar'] = this.jantar;
-    return data;
+  Future<void> getInformacaodoBD() async {
+    return http.get(url).then((value) {
+      print(value.body);
+    });
   }
 }

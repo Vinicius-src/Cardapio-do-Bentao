@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 import 'package:intl/intl.dart';
@@ -97,96 +99,103 @@ class _menuCalendario extends State<calendario> {
       );
 }
 
-class menuCardapio extends StatelessWidget {
-  const menuCardapio({Key? key}) : super(key: key);
+class menuCardapio extends StatefulWidget {
+  menuCardapio({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: ListView(children: <Widget>[
-          Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: Container(
-                  width: double.infinity,
-                  height: 30,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Center(
-                      child: Text(
-                    "Café da manhã 8h às 9h",
-                    style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
-                        .copyWith(color: Colors.white, fontSize: 20),
-                  )))),
-          Padding(
-              padding: EdgeInsets.only(left: 25, top: 20),
-              child: Container(
-                width: double.infinity,
-                height: 200,
-                child: Text("variaver do cardapio"),
-              )),
-          Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: Container(
-                  width: double.infinity,
-                  height: 30,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Center(
-                      child: Text(
-                    "Almoço 11h às 12h",
-                    style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
-                        .copyWith(color: Colors.white, fontSize: 20),
-                  )))),
-          Padding(
-              padding: EdgeInsets.only(left: 25, top: 20),
-              child: Container(
-                width: double.infinity,
-                height: 200,
-                child: Text("variaver do cardapio"),
-              )),
-          Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: Container(
-                  width: double.infinity,
-                  height: 30,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Center(
-                      child: Text(
-                    "Lanche da tarde 14h30 às 15h30",
-                    style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
-                        .copyWith(color: Colors.white, fontSize: 20),
-                  )))),
-          Padding(
-              padding: EdgeInsets.only(left: 25, top: 20),
-              child: Container(
-                width: double.infinity,
-                height: 200,
-                child: Text("variaver do cardapio"),
-              )),
-          Padding(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: Container(
-                  width: double.infinity,
-                  height: 30,
-                  decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Center(
-                      child: Text(
-                    "Jantar 19h às 20h",
-                    style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
-                        .copyWith(color: Colors.white, fontSize: 20),
-                  )))),
-          Padding(
-              padding: EdgeInsets.only(left: 25, top: 20),
-              child: Container(
-                width: double.infinity,
-                height: 200,
-                child: Text("variaver do cardapio"),
-              )),
+  State<menuCardapio> createState() => _menuCardapioState();
+}
+
+class _menuCardapioState extends State<menuCardapio> {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(children: <Widget>[
+      Padding(
+          padding: EdgeInsets.only(left: 10, right: 10),
+          child: Container(
+              width: double.infinity,
+              height: 30,
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Center(
+                  child: Text(
+                "Café da manhã 8h às 9h",
+                style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
+                    .copyWith(color: Colors.white, fontSize: 20),
+              )))),
+      Padding(
+          padding: EdgeInsets.only(left: 25, top: 20),
+          child: Container(
+            width: double.infinity,
+            height: 200,
+            child: Text("variaver do cardapio"),
+          )),
+      Padding(
+          padding: EdgeInsets.only(left: 10, right: 10),
+          child: Container(
+              width: double.infinity,
+              height: 30,
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Center(
+                  child: Text(
+                "Almoço 11h às 12h",
+                style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
+                    .copyWith(color: Colors.white, fontSize: 20),
+              )))),
+      Padding(
+          padding: EdgeInsets.only(left: 25, top: 20),
+          child: Container(
+            width: double.infinity,
+            height: 200,
+            child: Text("variaver do cardapio"),
+          )),
+      Padding(
+          padding: EdgeInsets.only(left: 10, right: 10),
+          child: Container(
+              width: double.infinity,
+              height: 30,
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Center(
+                  child: Text(
+                "Lanche da tarde 14h30 às 15h30",
+                style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
+                    .copyWith(color: Colors.white, fontSize: 20),
+              )))),
+      Padding(
+          padding: EdgeInsets.only(left: 25, top: 20),
+          child: Container(
+            width: double.infinity,
+            height: 200,
+            child: Text("variaver do cardapio"),
+          )),
+      Padding(
+          padding: EdgeInsets.only(left: 10, right: 10),
+          child: Container(
+              width: double.infinity,
+              height: 30,
+              decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Center(
+                  child: Text(
+                "Jantar 19h às 20h",
+                style: GoogleFonts.secularOne(fontWeight: FontWeight.w100)
+                    .copyWith(color: Colors.white, fontSize: 20),
+              )))),
+      Padding(
+        padding: EdgeInsets.only(left: 25, top: 20),
+        child: Column(children: [
+          Container(
+            width: 100,
+            height: 50,
+          )
         ]),
-      );
+      ),
+    ]);
+  }
 }

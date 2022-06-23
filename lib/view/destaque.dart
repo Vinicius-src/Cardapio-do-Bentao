@@ -1,4 +1,5 @@
 import 'package:cardapio_do_bentao/view/menuDia.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,6 +14,26 @@ class destaque extends StatefulWidget {
 class _destaqueState extends State<destaque> {
   int _index = 0;
   late PageController pc;
+
+  var linkImg = {
+    1: 'https://www.sympla.com.br/evento/arraia-do-bentao-2022/1591190',
+    2: 'https://docs.google.com/forms/d/e/1FAIpQLSfCF2m_9a60Y10L72luKZrlKyCn4XJV4tFBRlFLBA7rsjujMQ/viewform',
+    3: 'https://www.sympla.com.br/evento/arraia-do-bentao-2022/1591190',
+    4: 'https://docs.google.com/forms/d/e/1FAIpQLSfCF2m_9a60Y10L72luKZrlKyCn4XJV4tFBRlFLBA7rsjujMQ/viewform',
+  };
+
+  var imgNoticia = {
+    Image.asset(
+      "images/junina.png",
+      width: double.infinity,
+      height: double.infinity,
+    ),
+    Image.asset(
+      "images/bentotec.png",
+      width: double.infinity,
+      height: double.infinity,
+    ),
+  };
 
   @override
   void initState() {
@@ -44,7 +65,7 @@ class _destaqueState extends State<destaque> {
           ),
         ),
       ),
-      body: Column(children: <Widget>[
+      body: ListView(children: <Widget>[
         Padding(
           padding: EdgeInsets.all(20),
           child: ClipRRect(
@@ -67,83 +88,55 @@ class _destaqueState extends State<destaque> {
           ),
         ),
         Padding(
-            padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-            child: Text(
-              "Noticias",
-              textAlign: TextAlign.left,
-              style: GoogleFonts.secularOne()
-                  .copyWith(fontSize: 25, fontWeight: FontWeight.w100),
-            )),
-        Expanded(child: GridPrincipal())
+            padding: EdgeInsets.only(top: 15),
+            child: Center(
+                child: Text(
+              "Notícias",
+              style:
+                  GoogleFonts.secularOne(fontWeight: FontWeight.w100).copyWith(
+                color: Colors.black,
+                fontSize: 25,
+              ),
+            ))),
+        Padding(
+            padding: EdgeInsets.only(left: 20, right: 20, top: 5),
+            child: CarouselSlider(
+              options: CarouselOptions(
+                height: 300.0,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 3),
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+              ),
+              items: imgNoticia.map((i) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return GestureDetector(
+                      onTap: () async {
+                        var url = Uri(
+                          scheme: 'https',
+                          host: 'etecbentoquirino.com.br',
+                          path: '/new/cafe/',
+                        );
+                        if (await launchUrl(url,
+                            mode: LaunchMode.externalApplication)) {
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(urlErro);
+                        }
+                      },
+                      child: Container(
+                          padding: EdgeInsets.all(2),
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 10),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(30),
+                              child: i)),
+                    );
+                  },
+                );
+              }).toList(),
+            ))
       ]),
     );
-  }
-}
-
-class GridPrincipal extends StatelessWidget {
-  const GridPrincipal({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    var imgNoticia = {
-      1: Image.asset(
-        "images/junina.jpg",
-        width: double.infinity,
-        height: double.infinity,
-      ),
-      2: Image.asset(
-        "images/bentotec.jpg",
-        width: double.infinity,
-        height: double.infinity,
-      ),
-      3: Image.asset(
-        "images/junina.jpg",
-        width: double.infinity,
-        height: double.infinity,
-      ),
-      4: Image.asset("images/bentotec.jpg",
-          width: double.infinity, height: double.infinity),
-    };
-
-    var linkImg = {
-      1: 'https://www.sympla.com.br/evento/arraia-do-bentao-2022/1591190',
-      2: 'https://docs.google.com/forms/d/e/1FAIpQLSfCF2m_9a60Y10L72luKZrlKyCn4XJV4tFBRlFLBA7rsjujMQ/viewform',
-      3: 'https://www.sympla.com.br/evento/arraia-do-bentao-2022/1591190',
-      4: 'https://docs.google.com/forms/d/e/1FAIpQLSfCF2m_9a60Y10L72luKZrlKyCn4XJV4tFBRlFLBA7rsjujMQ/viewform',
-    };
-
-    int nimgNoticia = 1;
-
-    return GridView.builder(
-        itemCount: imgNoticia.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 0,
-          mainAxisSpacing: 0,
-        ),
-        itemBuilder: (BuildContext ctx, int index) {
-          return Container(
-              height: 200,
-              padding: EdgeInsets.only(left: 10, right: 10),
-              child: TextButton(
-                  child: Card(
-                    elevation: 100,
-                    color: Colors.white,
-                    child: Center(child: imgNoticia[nimgNoticia++]),
-                  ),
-                  onPressed: () async {
-                    var url = Uri(
-                      scheme: 'https',
-                      host: 'etecbentoquirino.com.br',
-                      path: '/new/cafe/',
-                    );
-                    if (await launchUrl(url,
-                        mode: LaunchMode.externalApplication)) {
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(urlErro);
-                    }
-                  }));
-        });
   }
 }
 

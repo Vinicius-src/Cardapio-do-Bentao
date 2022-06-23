@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, duplicate_ignore, prefer_const_literals_to_create_immutables, camel_case_types, deprecated_member_us
 // ignore: unused_import
+import 'dart:convert';
+
 import 'package:cardapio_do_bentao/main.dart';
+import 'package:cardapio_do_bentao/model/user_model.dart';
 import 'package:cardapio_do_bentao/telas/home.dart';
 import 'package:cardapio_do_bentao/values/custonColor.dart';
 import 'package:select_form_field/select_form_field.dart';
@@ -168,10 +171,12 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
   Future<bool> login() async {
     bool _resposta = testandoSelecao();
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    var Dados = {
-      'Periodo': _periodoController.text,
-      'Curso': _cursoController.text,
-    };
+    Usuario novoUsuario = Usuario(
+      periodo: _periodoController.text,
+      curso: _cursoController.text,
+    );
+    _saveUsuario(novoUsuario);
+
     if (_resposta == true) {
       await sharedPreferences.setString('token', 'Permitido');
       return true;
@@ -179,6 +184,14 @@ class _inicioState extends State<inicio> with SingleTickerProviderStateMixin {
       return false;
     }
   }
+}
+
+void _saveUsuario(Usuario usuario) async {
+  SharedPreferences saveUsuario = await SharedPreferences.getInstance();
+  saveUsuario.setString(
+    "IformacoesUsuario",
+    json.encode( usuario.toJson()),
+  );
 }
 
 final List<Map<String, dynamic>> _periodos = [

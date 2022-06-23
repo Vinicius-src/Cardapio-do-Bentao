@@ -1,0 +1,1 @@
+//responsavel por pegar as informações noo banco de dados onlaine e grravar na memoria 
